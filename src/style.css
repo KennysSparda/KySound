@@ -1,0 +1,90 @@
+* {
+  margin: 0px;
+}
+
+body {
+  color: yellow;
+  background: black;
+  text-align: center;
+}
+
+#panel {
+  background: #222222;
+  height: 500px;
+  width: 90%;
+  max-width: 500px;
+  margin: 16px auto;
+  padding: 8px;
+}
+
+#button-1 {
+  background: red;
+}
+
+#button-2 {
+  background: green;
+}
+
+#button-3 {
+  background: blue;
+}
+
+#button-4 {
+  background: orange;
+}
+
+#button-5 {
+  background: dodgerblue;
+}
+
+#button-6 {
+  background: magenta;
+}
+
+#button-7 {
+  background: purple;
+}
+
+#button-8 {
+  background: yellow;
+}
+
+#button-9 {
+  background: lime;
+}
+
+#button-1:hover {
+  background: white;
+}
+
+#button-2:hover {
+  background: white;
+}
+
+#button-3:hover {
+  background: white;
+}
+
+#button-4:hover {
+  background: white;
+}
+
+#button-5:hover {
+  background: white;
+}
+
+#button-6:hover {
+  background: white;
+}
+
+#button-7:hover {
+  background: white;
+}
+
+#button-8:hover {
+  background: white;
+}
+
+#button-9:hover {
+  background: white;
+}
