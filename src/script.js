@@ -1,64 +1,56 @@
-function button1play() {
-  function play() {
-    let x = document.getElementById("audio1"); 
-    x.cloneNode(true).play(); 
+function playAudio(buttonNumber) {
+  let audioId = "audio" + buttonNumber
+  let audio = document.getElementById(audioId)
+
+  if (!audio.loop) {
+    audio.currentTime = 0
   }
-  play()
-}
-function button2play() {
-  function play() {
-    let x = document.getElementById("audio2"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button3play() {
-  function play() {
-    let x = document.getElementById("audio3"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button4play() {
-  function play() {
-    let x = document.getElementById("audio4"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button5play() {
-  function play() {
-    let x = document.getElementById("audio5"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button6play() {
-  function play() {
-    let x = document.getElementById("audio6"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button7play() {
-  function play() {
-    let x = document.getElementById("audio7"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button8play() {
-  function play() {
-    let x = document.getElementById("audio8"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
-}
-function button9play() {
-  function play() {
-    let x = document.getElementById("audio9"); 
-    x.cloneNode(true).play(); 
-  }
-  play()
+
+  audio.play()
 }
 
+function toggleLoop(buttonNumber) {
+  let audioId = "audio" + buttonNumber
+  let audio = document.getElementById(audioId)
+  let repeatButton = document.getElementById("repeat-button-" + buttonNumber)
+
+  if (audio.loop) {
+    audio.loop = false
+    repeatButton.textContent = "Repetir " + buttonNumber
+  } else {
+    audio.loop = true
+    repeatButton.textContent = "Repetindo " buttonNumber
+  }
+
+  repeatButton.classList.toggle("active", audio.loop)
+}
+
+function addButtonListeners() {
+  const buttons = document.getElementsByClassName("btn")
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      let buttonNumber = this.id.split("-"[1])
+      playAudio(buttonNumber)
+    })
+  }
+}
+
+function addRepeatButtons() {
+  const buttons = document.getElementsByClassName("btn")
+  const repeatBar = document.getElementById("repeatBar")
+
+  for (let i = 0; i < buttons.length; i++) {
+    let buttonNumber = buttons[i].id.split("-"[1])
+    let repeatButton = document.createElement("button")
+    repeatButton.id = "repeat-button-" + buttonNumber
+    repeatButton.className = "repeat-button"
+    repeatButton.textContent = "Repetir " + buttonNumber
+    repeatButton.addEventListener("click", function() {
+      toggleLoop(buttonNumber)
+    })
+    repeatBar.appendChild(repeatButton)
+  }
+}
+
+addButtonListeners()
+addRepeatButtons()
